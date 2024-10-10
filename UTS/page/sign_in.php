@@ -7,6 +7,14 @@
     <title>ZenTask - Sign In</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHqz5aL4tR9nfsQ6N+E6C3zksdjBBfLepI4d2XaFfIho9ebMdbwT5K4p0XokA9EBcPavJwg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        main {
+            background-image: url('images/Ellipse 3.png');
+            background-position: bottom center;
+            background-repeat: no-repeat;
+            background-size: auto; 
+        }
+    </style>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
 
@@ -15,17 +23,17 @@
             ZenTask
         </div>
         <div>
-            <i class="fas fa-user-circle text-4xl text-gray-600"></i>
+            <img src="images/user_profile.jpg" alt="User Profile" class="w-12 h-12 rounded-full">
         </div>
     </header>
     
-    <main class="flex-grow flex flex-col justify-center items-center">
-        <div class="text-center">
+    <main class="flex-grow flex flex-col justify-center items-center bg-gray-50 relative">
+        <div class="text-center z-10">
             <h1 class="text-4xl font-bold text-black">Plan Your Goals Effortlessly</h1>
             <h2 class="text-2xl text-gray-600 mt-2">with ZenTask ✨</h2>
         </div>
 
-        <div class="bg-white shadow-lg rounded-lg p-8 mt-10 max-w-sm w-full">
+        <div class="bg-white shadow-lg rounded-lg p-8 mt-6 mb-10 max-w-sm w-full z-10">
             <h3 class="text-2xl font-bold mb-4">Sign In</h3>
             <form action="login.php" method="POST">
                 <div class="mb-4">
@@ -45,12 +53,8 @@
                 </div>
             </form>
             <div class="mt-4 text-center">
-                <p class="text-sm">Don't have an account? <a href="register.php" class="text-blue-500 hover:text-blue-700">Sign Up</a></p>
+                <p class="text-sm">Don't have an account? <a href="sign_up.php" class="text-blue-500 hover:text-blue-700">Sign Up</a></p>
             </div>
-        </div>
-
-        <div class="mt-10">
-            <img src="assets/Ellipse 3.png" alt="Ellipse Image" class="w-full max-w-lg">
         </div>
     </main>
 
