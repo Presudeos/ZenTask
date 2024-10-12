@@ -46,7 +46,7 @@
                 </div>
                 <div class="flex items-center justify-between mb-4">
                     <span class="text-gray-500 text-sm">Forgot your password?</span>
-                    <a href="#" class="text-blue-500 hover:text-blue-700 text-sm">Account Recovery</a>
+                    <a href="account_recovery.php" class="text-blue-500 hover:text-blue-700 text-sm">Account Recovery</a>
                 </div>
                 <div>
                     <button type="submit" class="w-full bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-800">Log In</button>

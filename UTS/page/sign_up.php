@@ -12,7 +12,11 @@
             background-image: url('images/Ellipse 3.png');
             background-position: bottom center;
             background-repeat: no-repeat;
-            background-size: auto; 
+            background-size: auto;
+            position: relative;
+        }
+        .form-container {
+            margin-top: -30px;
         }
     </style>
 </head>
@@ -28,12 +32,12 @@
     </header>
 
     <main class="flex-grow flex flex-col items-center justify-center relative">
-        <div class="text-center mb-10">
+        <div class="text-center mb-12">
             <h1 class="text-4xl font-bold text-black">Plan Your Goals Effortlessly</h1>
             <h2 class="text-2xl text-gray-600 mt-2">with ZenTask ✨</h2>
         </div>
 
-        <div class="bg-white shadow-lg rounded-lg p-8 max-w-sm w-full">
+        <div class="bg-white shadow-lg rounded-lg p-8 max-w-sm w-full form-container">
             <h3 class="text-2xl font-bold mb-4 text-center">Sign Up</h3>
             <form action="register.php" method="POST">
                 <div class="mb-4">
