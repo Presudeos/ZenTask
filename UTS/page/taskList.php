@@ -1,3 +1,5 @@
+<!-- Responsive -->
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +15,7 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
       rel="stylesheet"
     />
     <link
@@ -21,7 +23,7 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap"
       rel="stylesheet"
     />
 
@@ -67,7 +69,7 @@
     </nav>
 
     <div class="bgblur">
-    <div class="w-4/5 mx-auto md:w-[600px]">
+    <div class="w-11/12 md:w-[600px] mx-auto">
         <!-- Searchbar -->
         <div class="searchbar w-full h-12 mt-3 mb-5 flex wrap">
         <div class="searchbar-icon-box h-12 w-10 flex justify-left items-center shrink-0">
@@ -128,62 +130,64 @@
     </div>
 
     <!-- Modal: Add Task -->
-    <div class="modal-container-addtask fixed top-0 left-0 h-full w-full flex items-center justify-center hidden">
-        <form action="#" method="POST" class="modal-addtask w-96 px-8 py-8 flex flex-col justify-center bg-white rounded-md shadow font-[Roboto]">
-            <p class="font-bold place-self-center">Add Task</p>
-            <div class="flex flex-col mb-3 mt-4 text-sm gap-y-1">
-                <label>Title</label>
-                <input class="h-10 p-3 border rounded-md" name="title" placeholder="Input task title"/>
+<div class="modal-container-addtask fixed top-0 left-0 h-full w-full flex items-center justify-center hidden">
+    <form action="#" method="POST" class="modal-addtask w-11/12 max-w-md px-8 py-8 flex flex-col justify-center bg-white rounded-md shadow font-[Roboto]">
+        <p class="font-bold place-self-center">Add Task</p>
+        <div class="flex flex-col mb-3 mt-4 text-sm gap-y-1">
+            <label>Title</label>
+            <input class="h-10 p-3 border rounded-md w-full" name="title" placeholder="Input task title" />
+        </div>
+        <div class="flex flex-col mb-3 text-sm gap-y-1">
+            <label>Description</label>
+            <textarea class="h-20 p-3 border rounded-md w-full" name="description" placeholder="Input task description"></textarea>
+        </div>
+        <div class="flex flex-col mb-3 text-sm gap-y-1">
+            <label>Deadline</label>
+            <div class="flex flex-col md:flex-row justify-between gap-4 w-full">
+                <!-- Set consistent width for date and time inputs on larger screens -->
+                <input type="date" class="h-10 p-3 border rounded-md w-full md:w-1/2" name="day" placeholder="Date" />
+                <input type="time" class="h-10 p-3 border rounded-md w-full md:w-1/2" name="time" placeholder="Time" value="00:00" />
             </div>
-            <div class="flex flex-col mb-3 text-sm gap-y-1">
-                <label>Description</label>
-                <textarea class="h-20 p-3 border rounded-md" name="description" placeholder="Input task description"></textarea>
-            </div>
-            <div class="flex flex-col mb-3 text-sm gap-y-1">
-                <label>Deadline</label>
-                <div class="flex flex-row justify-between gap-x-4">
-                    <input type="date" class="w-40 h-10 p-3 border rounded-md" name="day" placeholder="Date"/>
-                    <input type="time" class="w-40 h-10 p-3 border rounded-md" name="month" placeholder="Time" value="00:00"/>
-                </div>
-            </div>
+        </div>
 
-            <div class="flex flex-row mt-4  justify-between">
-                <button class="cancelform-addtask w-28 h-8 rounded-md bg-gray-400 text-md text-white">Cancel</button>
-                <input type="submit" class="w-28 h-8 rounded-md bg-green-500 text-md text-white flex justify-center items-center cursor-pointer">
-            </div>
-        </form>
-    </div>
+        <div class="flex flex-row mt-4 justify-between">
+            <button class="cancelform-addtask w-28 h-8 rounded-md bg-gray-400 text-md text-white">Cancel</button>
+            <input type="submit" class="w-28 h-8 rounded-md bg-green-500 text-md text-white cursor-pointer">
+        </div>
+    </form>
+</div>
 
-    <!-- Modal: Edit Task -->
-    <div class="modal-container-edittask fixed top-0 left-0 h-full w-full flex items-center justify-center hidden">
-        <form action="#" method="POST" class="modal-edittask w-96 px-8 py-8 flex flex-col justify-center bg-white rounded-md shadow font-[Roboto]">
-            <p class="font-bold place-self-center">Edit Task</p>
-            <div class="flex flex-col mb-3 mt-4 text-sm gap-y-1">
-                <label>Title</label>
-                <input class="h-10 p-3 border rounded-md" name="title" placeholder="Input task title"/>
+<!-- Modal: Edit Task -->
+<div class="modal-container-edittask fixed top-0 left-0 h-full w-full flex items-center justify-center hidden">
+    <form action="#" method="POST" class="modal-edittask w-11/12 max-w-md px-8 py-8 flex flex-col justify-center bg-white rounded-md shadow font-[Roboto]">
+        <p class="font-bold place-self-center">Edit Task</p>
+        <div class="flex flex-col mb-3 mt-4 text-sm gap-y-1">
+            <label>Title</label>
+            <input class="h-10 p-3 border rounded-md w-full" name="title" placeholder="Input task title" />
+        </div>
+        <div class="flex flex-col mb-3 text-sm gap-y-1">
+            <label>Description</label>
+            <textarea class="h-20 p-3 border rounded-md w-full" name="description" placeholder="Input task description"></textarea>
+        </div>
+        <div class="flex flex-col mb-3 text-sm gap-y-1">
+            <label>Deadline</label>
+            <div class="flex flex-col md:flex-row justify-between gap-4 w-full">
+                <!-- Set consistent width for date and time inputs on larger screens -->
+                <input type="date" class="h-10 p-3 border rounded-md w-full md:w-1/2" name="day" placeholder="Date" />
+                <input type="time" class="h-10 p-3 border rounded-md w-full md:w-1/2" name="time" placeholder="Time" value="00:00" />
             </div>
-            <div class="flex flex-col mb-3 text-sm gap-y-1">
-                <label>Description</label>
-                <textarea class="h-20 p-3 border rounded-md" name="description" placeholder="Input task description"></textarea>
-            </div>
-            <div class="flex flex-col mb-3 text-sm gap-y-1">
-                <label>Deadline</label>
-                <div class="flex flex-row justify-between gap-x-4">
-                    <input type="date" class="w-40 h-10 p-3 border rounded-md" name="day" placeholder="Date"/>
-                    <input type="time" class="w-40 h-10 p-3 border rounded-md" name="month" placeholder="Time" value="00:00"/>
-                </div>
-            </div>
+        </div>
 
-            <div class="flex flex-row mt-4  justify-between">
-                <button type="button" class="cancelform-edittask w-28 h-8 rounded-md bg-gray-400 text-md text-white">Cancel</button>
-                <input type="submit" class="w-28 h-8 rounded-md bg-green-500 text-md text-white flex justify-center items-center cursor-pointer">
-            </div>
-        </form>
-    </div>
+        <div class="flex flex-row mt-4 justify-between">
+            <button type="button" class="cancelform-edittask w-28 h-8 rounded-md bg-gray-400 text-md text-white">Cancel</button>
+            <input type="submit" class="w-28 h-8 rounded-md bg-green-500 text-md text-white cursor-pointer">
+        </div>
+    </form>
+</div>
 
     <!-- Modal: Delete Task -->
     <div class="modal-container-deletetask fixed top-0 left-0 h-full w-full flex items-center justify-center hidden">
-        <form action="#" method="POST" class="modal-deletetask w-96 px-8 py-8 flex flex-col justify-center bg-white rounded-md shadow font-[Roboto]">
+        <form action="#" method="POST" class="modal-deletetask w-11/12 max-w-md px-8 py-8 flex flex-col justify-center bg-white rounded-md shadow font-[Roboto]">
             <p class="font-bold place-self-center">Delete Task</p>
 
             <p class="place-self-center pt-5 pb-3">Are you sure want to delete this task?</p>
