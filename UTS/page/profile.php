@@ -1,3 +1,5 @@
+<!-- Responsive -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +15,7 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
       rel="stylesheet"
     />
     <link
@@ -21,7 +23,7 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap"
       rel="stylesheet"
     />
 
@@ -55,7 +57,7 @@
                 <img
                     src="./images/user_profile.jpg"
                     class="cursor-pointer rounded-full object-cover h-12 ml-4"
-                    alt=""
+                    alt="Profile Picture"
                 ></img>
             </a>
             <a href="profile.php">
@@ -66,42 +68,46 @@
         </div>
     </nav>
 
-    <!-- Profile -->
-    <div class="bgblur">
-        <div class="w-4/5 mx-auto md:w-[600px] mt-12 flex justify-center font-[Roboto] rounded-lg p-6 gap-x-4">
-            <div>
-                <img src="./images/user_profile.jpg" class="w-40 h-40 object-cover rounded-full mr-12 mb-8"/>
-                <button class="w-auto h-auto pr-3 py-1 rounded-md edit-box add flex gap-x-2 mb-1"><img class="w-5 edit-box" src="./images/edit.svg"></img>Edit</button>
-                <button class="w-auto text-blue-500 underline edit-boxpassword">Change Password</button>
-            </div>
-            <div class="text-md flex-col justify-start">
-                <p class="mb-2 font-semibold text-gray-700">Username</p>
-                <p class="mb-4 text-gray-700">Anggatha Chandra Virya</p>
-                <p class="mb-2 font-semibold text-gray-700">Email</p>
-                <p class="mb-4 text-gray-700">virya281@gmail.com</p>
-                <p class="mb-2 font-semibold text-gray-700">Date Joined</p>
-                <p class="mb-4 text-gray-700">10 October 2024</p>
-                <p class="mb-2 font-semibold text-gray-700">ZenID</p>
-                <p class="text-gray-700">10F21</p>
-            </div>
+<!-- Profile -->
+<div class="bgblur">
+    <div class="w-full max-w-4xl mx-auto mt-12 flex flex-col md:flex-row justify-center items-center gap-8">
+        <div class="flex flex-col items-center md:items-start">
+            <img src="./images/user_profile.jpg" class="w-40 h-40 md:w-48 md:h-48 object-cover rounded-full aspect-square mb-4"/>
+            <button class="w-auto h-auto pr-3 py-1 rounded-md edit-box add flex gap-x-2 mb-2"><img class="w-5 edit-box" src="./images/edit.svg"></img>Edit</button>
+            <button class="w-auto text-blue-500 underline edit-boxpassword">Change Password</button>
+        </div>
+        <div class="text-md flex flex-col justify-start w-full md:w-auto px-8 md:px-0"> <!-- Padding added for small screens -->
+            <p class="mb-2 font-semibold text-gray-700">Username</p>
+            <p class="mb-4 text-gray-700">Anggatha Chandra Virya</p>
+            <p class="mb-2 font-semibold text-gray-700">Email</p>
+            <p class="mb-4 text-gray-700">virya281@gmail.com</p>
+            <p class="mb-2 font-semibold text-gray-700">Date Joined</p>
+            <p class="mb-4 text-gray-700">10 October 2024</p>
+            <p class="mb-2 font-semibold text-gray-700">ZenID</p>
+            <p class="text-gray-700">10F21</p>
         </div>
     </div>
+</div>
 
-    <!-- Modal: Edit Task -->
+
+
+
+
+    <!-- Modal: Edit Profile -->
     <div class="modal-container-editprofile fixed top-0 left-0 h-full w-full flex items-center justify-center hidden">
-        <form action="#" method="POST" class="modal-editprofile w-96 px-8 py-8 flex flex-col justify-center bg-white rounded-md shadow font-[Roboto]">
+        <form action="#" method="POST" class="modal-editprofile w-11/12 max-w-md px-8 py-8 flex flex-col justify-center bg-white rounded-md shadow font-[Roboto]">
             <p class="font-bold place-self-center">Edit Profile</p>
             <div class="flex flex-col mb-3 mt-4 text-sm gap-y-1">
                 <label>Username</label>
-                <input class="h-10 p-3 border rounded-md" name="title" placeholder="Input username"/>
+                <input class="h-10 p-3 border rounded-md w-full" name="username" placeholder="Input username"/>
             </div>
             <div class="flex flex-col mb-3 text-sm gap-y-1">
                 <label>Email</label>
-                <input class="h-10 p-3 border rounded-md" name="title" placeholder="example@example.com"/>
+                <input class="h-10 p-3 border rounded-md w-full" name="email" placeholder="example@example.com"/>
             </div>
             <div class="flex flex-col mb-3 text-sm gap-y-1">
                 <label>Enter your password</label>
-                <input type="password" class="h-10 p-3 border rounded-md" name="oldpassword" placeholder="Input password"/>
+                <input type="password" class="h-10 p-3 border rounded-md w-full" name="oldpassword" placeholder="Input password"/>
             </div>
 
             <div class="flex flex-row mt-4  justify-between">
@@ -113,22 +119,22 @@
 
     <!-- Modal: Edit Password -->
     <div class="modal-container-editpassword fixed top-0 left-0 h-full w-full flex items-center justify-center hidden">
-        <form action="#" method="POST" class="modal-editpassword w-96 px-8 py-8 flex flex-col justify-center bg-white rounded-md shadow font-[Roboto]">
+        <form action="#" method="POST" class="modal-editpassword w-11/12 max-w-md px-8 py-8 flex flex-col justify-center bg-white rounded-md shadow font-[Roboto]">
             <p class="font-bold place-self-center">Edit Password</p>
             <div class="flex flex-col mb-3 mt-4 text-sm gap-y-1">
                 <label>Enter your password</label>
-                <input type="password" class="h-10 p-3 border rounded-md" name="oldpassword" placeholder="Input password"/>
+                <input type="password" class="h-10 p-3 border rounded-md w-full" name="oldpassword" placeholder="Input password"/>
             </div>
             <div class="flex flex-col mb-3 text-sm gap-y-1">
                 <label>Enter new password</label>
-                <input type="password" class="h-10 p-3 border rounded-md" name="newpassword" placeholder="Input new password"/>
+                <input type="password" class="h-10 p-3 border rounded-md w-full" name="newpassword" placeholder="Input new password"/>
             </div>
             <div class="flex flex-col mb-3 text-sm gap-y-1">
                 <label>Re-enter new password</label>
-                <input type="password" class="h-10 p-3 border rounded-md" name="reenter-newpassword" placeholder="Re-enter new password"/>
+                <input type="password" class="h-10 p-3 border rounded-md w-full" name="reenter-newpassword" placeholder="Re-enter new password"/>
             </div>
 
-            <div class="flex flex-row mt-4  justify-between">
+            <div class="flex flex-row mt-4 justify-between">
                 <button type="button" class="cancelform-editpassword w-28 h-8 rounded-md bg-gray-400 text-md text-white">Cancel</button>
                 <input type="submit" class="w-28 h-8 rounded-md bg-green-500 text-md text-white flex justify-center items-center cursor-pointer">
             </div>
