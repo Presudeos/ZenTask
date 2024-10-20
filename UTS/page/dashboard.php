@@ -1,3 +1,5 @@
+<!-- Responsive -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +15,7 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
       rel="stylesheet"
     />
     <link
@@ -55,8 +57,8 @@
                 <img
                     src="./images/user_profile.jpg"
                     class="cursor-pointer rounded-full object-cover h-12 ml-4"
-                    alt=""
-                ></img>
+                    alt="Profile Picture"
+                />
             </a>
             <a href="profile.php">
                 <p class="cursor-pointer font-[Montserrat] font-light text-md text-right max-[1200px]:hidden">
@@ -68,43 +70,42 @@
 
     <!-- Main Content -->
     <div class="bgblur">
-    <div class="w-4/5 mx-auto md:w-[600px] flex flex-col items-center">
-        <h2 class="text-xl font-bold text-center">Welcome, Anggatha! <br> What do you want to do today?</h2>
+        <div class="w-4/5 mx-auto md:w-[600px] flex flex-col items-center">
+            <h2 class="text-xl font-bold text-center">Welcome, Anggatha! <br> What do you want to do today?</h2>
 
-        <div class="flex flex-row items-center h-[350px] gap-x-4 gap-y-4 my-4">
-            <!-- Ongoing -->
-            <div class="bg-orange-100 px-6 py-6 rounded-lg flex flex-col justify-center items-center w-60 h-full place-self-start">
-                <h3 class="text-xl font-semibold mb-4">Ongoing Tasks</h3>
-                <div class="flex flex-col place-self-start mb-3">
-                    <p>Project</p>
-                    <p>Yesterday, 23.59</p>
-                </div>
-                <div class="flex flex-col place-self-start mb-3">
-                    <p>Project</p>
-                    <p>Yesterday, 23.59</p>
-                </div>
-                <a href="#" class="text-blue-600 mt-4 underline place-self-end">Ongoing Task</a>
-            </div>
-
-            <div class="flex flex-col items-center h-full gap-y-4">
-                <!-- Total Task Created -->
-                <div class="bg-orange-100 px-6 py-6 rounded-lg flex flex-col justify-center items-center w-60">
-                    <h3 class="text-xl font-semibold mb-3">Total Task Created</h3>
-                    <h1 class="text-4xl font-bold">72</h1>
-                </div>
-                <!-- Task Completion -->
-                <div class="bg-orange-100 px-6 py-6 rounded-lg flex flex-col justify-center items-center w-60">
-                    <h3 class="text-xl font-semibold mb-3">Task Completion</h3>
-                    <h1 class="text-4xl font-bold mb-1">80%</h1>
-                    <div class="w-full bg-gray-300 rounded-full h-2.5 mt-2">
-                        <div class="bg-green-500 h-2.5 rounded-full" style="width: 80%;"></div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 my-6 w-full">
+                <!-- Ongoing Tasks -->
+                <div class="bg-orange-100 px-6 py-6 rounded-lg flex flex-col justify-center items-center">
+                    <h3 class="text-xl font-semibold mb-4">Ongoing Tasks</h3>
+                    <div class="flex flex-col mb-3 w-full text-left">
+                        <p>Project</p>
+                        <p class="text-sm text-gray-600">Yesterday, 23.59</p>
                     </div>
-                    <a href="#" class="text-blue-600 mt-4 underline place-self-end">Completed Task</a>
+                    <div class="flex flex-col mb-3 w-full text-left">
+                        <p>Project</p>
+                        <p class="text-sm text-gray-600">Yesterday, 23.59</p>
+                    </div>
+                    <a href="#" class="text-blue-600 mt-4 underline self-end">Ongoing Task</a>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <!-- Total Task Created -->
+                    <div class="bg-orange-100 px-6 py-6 rounded-lg flex flex-col justify-center items-center">
+                        <h3 class="text-xl font-semibold mb-3">Total Task Created</h3>
+                        <h1 class="text-4xl font-bold">72</h1>
+                    </div>
+                    <!-- Task Completion -->
+                    <div class="bg-orange-100 px-6 py-6 rounded-lg flex flex-col justify-center items-center">
+                        <h3 class="text-xl font-semibold mb-3">Task Completion</h3>
+                        <h1 class="text-4xl font-bold mb-1">80%</h1>
+                        <div class="w-full bg-gray-300 rounded-full h-2.5 mt-2">
+                            <div class="bg-green-500 h-2.5 rounded-full" style="width: 80%;"></div>
+                        </div>
+                        <a href="#" class="text-blue-600 mt-4 underline self-end">Completed Task</a>
+                    </div>
                 </div>
             </div>
-            
         </div>
-    </div>
     </div>
 </body>
 </html>
