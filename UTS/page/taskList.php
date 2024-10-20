@@ -35,11 +35,12 @@
     <!-- Navigation -->
     <nav class="w-full h-auto py-5 flex items-center px-[20px] md:px-[55px] max-lg:justify-between">
         <div class="brand w-auto font-[Pacifico] text-3xl md:text-4xl basis-1/4">
-            <p>ZenTask</p>
+            <p class="cursor-default">ZenTask</p>
         </div>
         <div class="nav-link basis-1/2 font-[Poppins] font-medium text-lg flex items-center gap-x-[41px] justify-center max-lg:hidden">
             <a href="dashboard.php">Dashboard</a>
-            <a href="taskList.php" class="active">Task List</a>
+            <a href="taskList.php" class="active">Tasks</a>
+            <a href="ongoingTask.php">Ongoing</a>
             <a href="completedTask.php">Completed</a>
         </div>
         <label class="burger lg:hidden" for="burger">
@@ -50,14 +51,18 @@
         </label>
         <!-- Profile -->
         <div class="profilenav flex flex-row-reverse h-20 items-center basis-1/4 max-lg:hidden max-lg:place-self-end">
-            <img
-                src="./images/user_profile.jpg"
-                class="cursor-pointer rounded-full object-cover h-12 ml-4"
-                alt=""
-            ></img>
-            <p class="cursor-pointer font-[Montserrat] font-light text-md text-right max-[1100px]:hidden">
-                Anggatha Chandra Virya
-            </p>
+            <a href="profile.php">
+                <img
+                    src="./images/user_profile.jpg"
+                    class="cursor-pointer rounded-full object-cover h-12 ml-4"
+                    alt=""
+                ></img>
+            </a>
+            <a href="profile.php">
+                <p class="cursor-pointer font-[Montserrat] font-light text-md text-right max-[1200px]:hidden">
+                    Anggatha Chandra Virya
+                </p>
+            </a>
         </div>
     </nav>
 
@@ -100,6 +105,20 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, inventore?</p>
                     <div class="flex flex-row justify-end edit-container">
                         <button class="w-auto h-auto px-3 py-1 rounded-md edit-box add"><img class="w-5 edit-box" src="./images/edit.svg"></img></button>
+                        <button class="w-auto h-auto px-3 py-1 rounded-md delete-box delete"><img class="w-5 delete-box" src="./images/delete.svg"></img></button>
+                    </div>
+                </div>
+            </li>
+
+            <p class="py-2">Completed:</p>
+            <li class="list-container flex items-center py-3 font-[Montserrat] flex-wrap hover:bg-blue-100 rounded-md px-4">
+                <div class="content-container flex flex-row w-full items-center justify-between h-full pl-[18px]">
+                    <p class="title ml-4 cursor-pointer">Task 1</p>
+                    <p class="deadline mr-4 cursor-pointer max-sm:place-self-end ml-auto">Yesterday, 12:00</p>
+                </div>
+                <div class="description-div ml-9 cursor-default">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, inventore?</p>
+                    <div class="flex flex-row justify-end edit-container">
                         <button class="w-auto h-auto px-3 py-1 rounded-md delete-box delete"><img class="w-5 delete-box" src="./images/delete.svg"></img></button>
                     </div>
                 </div>
