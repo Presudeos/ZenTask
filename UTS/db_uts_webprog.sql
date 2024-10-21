@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2024 at 01:57 AM
+-- Generation Time: Oct 21, 2024 at 01:59 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -66,7 +66,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ZenID`, `Username`, `Email`, `Picture`, `Password`, `DateJoined`, `TaskCreated`) VALUES
-(1, 'example', 'example@example.com', NULL, '$2y$10$HrGnlgMwZUWYrlaNVvcaOOhDEROsp9kP0fgp4aP9nypWfgyrcQ32q', '2024-10-20', 0);
+(1, 'example', 'example@example.com', NULL, '$2y$10$HrGnlgMwZUWYrlaNVvcaOOhDEROsp9kP0fgp4aP9nypWfgyrcQ32q', '2024-10-20', 3);
 
 --
 -- Indexes for dumped tables
