@@ -21,12 +21,19 @@ try {
 
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO users (username, email, password) VALUES (:username, :email, :password)";
+        $created_at = date('Y-m-d H:i:s');
+
+        $zenid = 'ZEN' . rand(10000, 99999);
+
+        $sql = "INSERT INTO users (username, email, password, created_at, zenid) 
+                VALUES (:username, :email, :password, :created_at, :zenid)";
         $stmt = $pdo->prepare($sql);
 
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $hashed_password);
+        $stmt->bindParam(':created_at', $created_at);
+        $stmt->bindParam(':zenid', $zenid);
 
         if ($stmt->execute()) {
             header("Location: ../page/sign_in.php");
