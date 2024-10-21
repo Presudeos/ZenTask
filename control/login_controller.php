@@ -1,5 +1,4 @@
 <?php
-// Database connection details
 $host = 'localhost';
 $dbname = 'zentask_db';
 $user = 'root';  
