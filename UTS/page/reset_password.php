@@ -34,7 +34,7 @@
         </div>
 
         <div class="bg-white shadow-lg rounded-lg p-8 max-w-sm w-full z-10">
-            <form action="password_update.php" method="POST">
+            <form action="../control/reset_password_controller.php" method="POST">
                 <div class="mb-6">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
                     <input type="email" name="email" id="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter your email" required>
@@ -51,9 +51,6 @@
                     <button type="submit" class="w-full bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-800">Update Password</button>
                 </div>
             </form>
-            <div class="mt-4 text-center">
-                <a href="sign_in.php" class="text-blue-500 hover:text-blue-700 text-sm">Back to Sign In</a>
-            </div>
         </div>
     </main>
 

@@ -35,10 +35,18 @@
 
         <div class="bg-white shadow-lg rounded-lg p-8 mt-6 mb-10 max-w-sm w-full z-10">
             <h3 class="text-2xl font-bold mb-4">Sign In</h3>
-            <form action="login.php" method="POST">
+
+            <!-- Display error message if login failed -->
+            <?php if (isset($_GET['error']) && $_GET['error'] == 1): ?>
+                <div class="text-red-500 text-sm mb-4">
+                    Invalid email/username or password.
+                </div>
+            <?php endif; ?>
+
+            <form action="../control/login_controller.php" method="POST">
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
-                    <input type="email" name="email" id="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter your email" required>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email_or_username">Email or Username</label>
+                    <input type="text" name="email_or_username" id="email_or_username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter your email or username" required>
                 </div>
                 <div class="mb-6">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password</label>
@@ -46,7 +54,7 @@
                 </div>
                 <div class="flex items-center justify-between mb-4">
                     <span class="text-gray-500 text-sm">Forgot your password?</span>
-                    <a href="account_recovery.php" class="text-blue-500 hover:text-blue-700 text-sm">Account Recovery</a>
+                    <a href="reset_password.php" class="text-blue-500 hover:text-blue-700 text-sm">Reset password</a>
                 </div>
                 <div>
                     <button type="submit" class="w-full bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-800">Log In</button>
