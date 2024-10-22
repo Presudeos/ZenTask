@@ -1,7 +1,7 @@
 <!-- Responsive -->
 
 <?php 
-    require_once("./control/fetchOngoingTask.php");
+    require_once("../control/fetchOngoingTask.php");
     $_SESSION['Anchor_Page'] = "ongoingTask.php";
 
 ?>
@@ -105,7 +105,7 @@
             <?php for($x = 0; $x < $i; $x++){ ?>
             <li class="list-container flex items-center py-3 font-[Montserrat] flex-wrap hover:bg-blue-100 rounded-md px-4">
                 <div class="content-container flex flex-row w-full items-center justify-between h-full">
-                    <form action="./control/markCompleted.php?TaskID=<?= $ongoing[$x]['TaskID'] ?>" method="POST">
+                    <form action="../control/markCompleted.php?TaskID=<?= $ongoing[$x]['TaskID'] ?>" method="POST">
                         <input type="checkbox" id="list-<?= $x ?>" class="cbx" style="display: none;">
                         <label for="list-<?= $x ?>" class="check m-0 cb">
                             <svg width="18px" height="18px" viewBox="0 0 18 18" class="cb">
@@ -143,7 +143,7 @@
 
     <!-- Modal: Add Task -->
 <div class="modal-container-addtask fixed top-0 left-0 h-full w-full flex items-center justify-center hidden">
-    <form action="./control/addTask.php" method="POST" class="modal-addtask w-11/12 max-w-md px-8 py-8 flex flex-col justify-center bg-white rounded-md shadow font-[Roboto]">
+    <form action="../control/addTask.php" method="POST" class="modal-addtask w-11/12 max-w-md px-8 py-8 flex flex-col justify-center bg-white rounded-md shadow font-[Roboto]">
         <p class="font-bold place-self-center">Add Task</p>
         <div class="flex flex-col mb-3 mt-4 text-sm gap-y-1">
             <label>Title</label>
@@ -171,7 +171,7 @@
 
 <!-- Modal: Edit Task -->
 <div class="modal-container-edittask fixed top-0 left-0 h-full w-full flex items-center justify-center hidden">
-    <form action="./control/editTask.php" method="POST" class="modal-edittask w-11/12 max-w-md px-8 py-8 flex flex-col justify-center bg-white rounded-md shadow font-[Roboto]">
+    <form action="../control/editTask.php" method="POST" class="modal-edittask w-11/12 max-w-md px-8 py-8 flex flex-col justify-center bg-white rounded-md shadow font-[Roboto]">
         <p class="font-bold place-self-center">Edit Task</p>
         <input name="id" type="number" hidden />
         <div class="flex flex-col mb-3 mt-4 text-sm gap-y-1">
@@ -200,7 +200,7 @@
 
     <!-- Modal: Delete Task -->
     <div class="modal-container-deletetask fixed top-0 left-0 h-full w-full flex items-center justify-center hidden">
-        <form action="./control/deleteTask.php" method="POST" class="modal-deletetask w-11/12 max-w-md px-8 py-8 flex flex-col justify-center bg-white rounded-md shadow font-[Roboto]">
+        <form action="../control/deleteTask.php" method="POST" class="modal-deletetask w-11/12 max-w-md px-8 py-8 flex flex-col justify-center bg-white rounded-md shadow font-[Roboto]">
             <p class="font-bold place-self-center">Delete Task</p>
 
             <p class="place-self-center pt-5 pb-3">Are you sure want to delete this task?</p>

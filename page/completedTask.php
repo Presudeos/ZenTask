@@ -1,7 +1,7 @@
 <!-- Responsive -->
 
 <?php 
-    require_once("./control/fetchCompletedTask.php");
+    require_once("../control/fetchCompletedTask.php");
     $_SESSION['Anchor_Page'] = "completedTask.php";
 ?>
 
@@ -126,7 +126,7 @@
 
     <!-- Modal: Delete Task -->
     <div class="modal-container-deletetask fixed top-0 left-0 h-full w-full flex items-center justify-center hidden">
-        <form action="./control/deleteTask.php" method="POST" class="modal-deletetask w-11/12 max-w-md px-8 py-8 flex flex-col justify-center bg-white rounded-md shadow font-[Roboto]">
+        <form action="../control/deleteTask.php" method="POST" class="modal-deletetask w-11/12 max-w-md px-8 py-8 flex flex-col justify-center bg-white rounded-md shadow font-[Roboto]">
             <p class="font-bold place-self-center">Delete Task</p>
 
             <p class="place-self-center pt-5 pb-3">Are you sure want to delete this task?</p>
@@ -141,7 +141,7 @@
 
     <!-- Modal: Delete All Tasks -->
     <div class="modal-container-deletetaskALL fixed top-0 left-0 h-full w-full flex items-center justify-center hidden">
-        <form action="./control/deleteAllTask.php" method="POST" class="modal-deletetask w-11/12 max-w-md px-8 py-8 flex flex-col justify-center bg-white rounded-md shadow font-[Roboto]">
+        <form action="../control/deleteAllTask.php" method="POST" class="modal-deletetask w-11/12 max-w-md px-8 py-8 flex flex-col justify-center bg-white rounded-md shadow font-[Roboto]">
             <p class="delete-box-ALL font-bold place-self-center">Delete All Tasks</p>
             <p class="place-self-center pt-5 pb-3">Are you sure you want to delete all tasks?</p>
             <div class="flex flex-row mt-4 justify-between">
