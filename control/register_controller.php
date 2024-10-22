@@ -14,28 +14,31 @@ try {
         $password = $_POST['password'];
         $confirm_password = $_POST['confirm_password'];
 
+        // Check if passwords match
         if ($password !== $confirm_password) {
             echo "Passwords do not match.";
             exit();
         }
 
+        // Hash password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
+        // Get current timestamp
         $created_at = date('Y-m-d H:i:s');
 
-        $zenid = 'ZEN' . rand(10000, 99999);
-
-        $sql = "INSERT INTO users (username, email, password, created_at, zenid) 
-                VALUES (:username, :email, :password, :created_at, :zenid)";
+        // Prepare and execute query
+        $sql = "INSERT INTO users (username, email, password, created_at) 
+                VALUES (:username, :email, :password, :created_at)";
         $stmt = $pdo->prepare($sql);
 
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $hashed_password);
         $stmt->bindParam(':created_at', $created_at);
-        $stmt->bindParam(':zenid', $zenid);
 
+        // Execute the query
         if ($stmt->execute()) {
+            // Redirect to sign in page after successful registration
             header("Location: ../page/sign_in.php");
             exit();
         } else {

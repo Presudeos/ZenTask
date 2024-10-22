@@ -10,6 +10,7 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+    // Check if the user is logged in
     if (!isset($_SESSION['user_id'])) {
         header("Location: ../page/sign_in.php");
         exit();
@@ -17,7 +18,8 @@ try {
 
     $user_id = $_SESSION['user_id']; 
 
-    $sql = "SELECT username, email, created_at, zenid FROM users WHERE id = :user_id";
+    // Fetch user data based on the ID
+    $sql = "SELECT username, email, created_at FROM users WHERE id = :user_id";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $stmt->execute();
@@ -32,7 +34,6 @@ try {
     $username = $user['username'];
     $email = $user['email'];
     $date_joined = date('d F Y', strtotime($user['created_at'])); 
-    $zenid = $user['zenid'];
 
 } catch (PDOException $e) {
     echo "Database error: " . $e->getMessage();

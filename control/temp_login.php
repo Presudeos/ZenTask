@@ -1,33 +1,41 @@
 <?php
-//Sekalian login
-
 require_once("database_connect.php");
 
-session_start(); //TEMPORARY
-$username = 'example';
-$password = 'example';
+session_start(); 
 
-$sql = "SELECT * FROM user
-        WHERE username = ?";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email_or_username = $_POST['email_or_username'];
+    $password = $_POST['password'];
 
-$stmt = $kunci->prepare($sql);
-$stmt->execute([$username]);
+    // Check whether the input is an email or username
+    if (filter_var($email_or_username, FILTER_VALIDATE_EMAIL)) {
+        $sql = "SELECT * FROM users WHERE email = ?";
+    } else {
+        $sql = "SELECT * FROM users WHERE username = ?";
+    }
 
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$email_or_username]);
 
-if(!$row){
-    echo "User not found";
-}else{
-    echo "USERNAME ada di database<br/>";
-    echo "Password yang di input di form login: " . $row['Username'];
-    echo "<br/>Password yang tersimpan di database: " . $row['Password'];
-    if (!password_verify($password, $row['Password'])){
-        echo "Wrong password";
-    }else{
-        
-        $_SESSION['ZenID'] = $row['ZenID'];
-        $_SESSION['Username'] = $row['Username'];
-        $_SESSION['Picture'] = $row['Picture'];
-        //header('location: internal.php');
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$user) {
+        echo "User not found.";
+        exit();
+    } else {
+        // Verify the password
+        if (!password_verify($password, $user['password'])) {
+            echo "Wrong password.";
+        } else {
+            // Set session variables using the user's ID instead of ZenID
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['email'] = $user['email'];
+
+            // Redirect to internal page or user dashboard
+            header('Location: internal.php');
+            exit();
+        }
     }
 }
+?>
