@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset($_SESSION['ZenID'])){
-    header('location: sign_in.php');
+    header('location: ../page/sign_in.php'); //
     die();
 }
 
@@ -14,6 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
             WHERE ZenID = ? AND Finish IS NOT NULL";
     $stmt = $kunci->prepare($sql);
     $stmt->execute(params: [$_SESSION['ZenID']]);
-    $anchor = "../" . $_SESSION['Anchor_Page'];
+    $anchor = "../page/" . $_SESSION['Anchor_Page']; //
     header("location: ". $anchor);
 }

@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset($_SESSION['ZenID'])){
-    header('location: sign_in.php');
+    header('location: ../page/sign_in.php');
     die();
 }
 
@@ -14,5 +14,5 @@ $stmt = $kunci->prepare($sql);
 $stmt->execute([$_SESSION['ZenID'], $_GET['TaskID']]);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-$anchor = "../" . $_SESSION['Anchor_Page'];
+$anchor = "../page/" . $_SESSION['Anchor_Page'];
 header("location: ". $anchor);
