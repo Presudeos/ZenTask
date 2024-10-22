@@ -1,0 +1,25 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['ZenID'])){
+    header('location: sign_in.php');
+    die();
+}
+
+require_once('database_connect.php');
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $TaskID = (int)$_POST['id'];
+    $formattedDate = DateTime::createFromFormat('Y-m-d', $_POST['date'])->format('Y-m-d');
+    $DeadlineInput = $formattedDate . ' ' . $_POST['time'];
+    $DeadlineObj = DateTime::createFromFormat('Y-m-d H:i', $DeadlineInput);
+    $formattedDeadline = $DeadlineObj->format('Y-m-d H:i:s');
+
+    $sql = "UPDATE Task
+            SET Title = ?, Description = ?, Deadline = ?
+            WHERE ZenID = ? AND TaskID = ?";
+    $stmt = $kunci->prepare($sql);
+    $stmt->execute(params: [$_POST['title'], $_POST['description'], $formattedDeadline, $_SESSION['ZenID'], $TaskID]);
+    $anchor = "../" . $_SESSION['Anchor_Page'];
+    header("location: ". $anchor);
+}
