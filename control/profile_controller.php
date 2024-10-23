@@ -1,15 +1,7 @@
 <?php
 session_start();
 
-$host = 'localhost';
-$dbname = 'zentask_db';
-$user = 'root';  
-$pass = '';    
-
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     // Check if the user is logged in
     if (!isset($_SESSION['user_id'])) {
         header("Location: ../page/sign_in.php");
@@ -20,7 +12,7 @@ try {
 
     // Fetch user data based on the ID
     $sql = "SELECT username, email, created_at FROM users WHERE id = :user_id";
-    $stmt = $pdo->prepare($sql);
+    $stmt = $kunci->prepare($sql);
     $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $stmt->execute();
 

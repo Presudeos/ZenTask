@@ -1,13 +1,7 @@
 <?php
-$host = 'localhost';
-$dbname = 'zentask_db';
-$user = 'root';  
-$pass = '';    
+include './database_connect.php';
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $_POST['username'];
         $email = $_POST['email'];
@@ -27,9 +21,9 @@ try {
         $created_at = date('Y-m-d H:i:s');
 
         // Prepare and execute query
-        $sql = "INSERT INTO users (username, email, password, created_at) 
+        $sql = "INSERT INTO user (Username, Email, Password, Created_at) 
                 VALUES (:username, :email, :password, :created_at)";
-        $stmt = $pdo->prepare($sql);
+        $stmt = $kunci->prepare($sql);
 
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':email', $email);
