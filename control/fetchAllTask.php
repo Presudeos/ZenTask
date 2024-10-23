@@ -18,7 +18,7 @@ if (isset($_GET['search']) && !empty($_GET['search'])){
             WHERE ZenID = ? AND Title LIKE ?
             ORDER BY Deadline ASC";
     $stmt = $kunci->prepare($sql);
-    $stmt->execute([$_SESSION['ZenID'], '%' . $_GET['search'] . '%']);
+    $stmt->execute([$_SESSION['user']['ZenID'], '%' . $_GET['search'] . '%']);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 }
 else{
@@ -27,7 +27,7 @@ else{
             WHERE ZenID = ?
             ORDER BY Deadline ASC";
     $stmt = $kunci->prepare($sql);
-    $stmt->execute([$_SESSION['ZenID']]);
+    $stmt->execute([$_SESSION['user']['ZenID']]);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 }
 

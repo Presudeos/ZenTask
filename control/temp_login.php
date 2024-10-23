@@ -28,9 +28,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Wrong password.";
         } else {
             // Set session variables using the user's ID instead of ZenID
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['email'] = $user['email'];
+            $_SESSION['user']['ZenID'] = $user['ZenID'];
+            $_SESSION['user']['Username'] = $user['Username'];
+            $_SESSION['user']['Email'] = $user['Email'];
 
             // Redirect to internal page or user dashboard
             header('Location: internal.php');

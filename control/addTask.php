@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['ZenID'])){
+if(!isset($_SESSION['user']['ZenID'])){
     header('location: ../page/sign_in.php'); //
     die();
 }
@@ -17,12 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $sql = "INSERT INTO Task (ZenID, Title, Description, Deadline)
             VALUES (?, ?, ?, ?)";
     $stmt = $kunci->prepare($sql);
-    $stmt->execute(params: [$_SESSION['ZenID'], $_POST['title'], $_POST['description'], $formattedDeadline]);
+    $stmt->execute(params: [$_SESSION['user']['ZenID'], $_POST['title'], $_POST['description'], $formattedDeadline]);
     $sql = "UPDATE Dashboard
             SET TaskCreated = TaskCreated + 1
             WHERE ZenID = ?";
     $stmt = $kunci->prepare($sql);
-    $stmt->execute([$_SESSION['ZenID']]);
+    $stmt->execute([$_SESSION['user']['ZenID']]);
     
     $anchor = "../page/" . $_SESSION['Anchor_Page']; //
     header("location: ". $anchor);

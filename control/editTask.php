@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['ZenID'])){
+if(!isset($_SESSION['user'])){
     header('location: ../page/sign_in.php');
     die();
 }
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
             SET Title = ?, Description = ?, Deadline = ?
             WHERE ZenID = ? AND TaskID = ?";
     $stmt = $kunci->prepare($sql);
-    $stmt->execute(params: [$_POST['title'], $_POST['description'], $formattedDeadline, $_SESSION['ZenID'], $TaskID]);
+    $stmt->execute(params: [$_POST['title'], $_POST['description'], $formattedDeadline, $_SESSION['user']['ZenID'], $TaskID]);
     $anchor = "../page/" . $_SESSION['Anchor_Page'];
     header("location: ". $anchor);
 }
