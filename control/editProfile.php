@@ -7,8 +7,12 @@ include './database_connect.php';
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $email = $_POST['email'];
+    $pictureTmp = $_FILES['picture']['tmp_name'];
+    $pictureName = $_FILES['picture']['name'];
+
     $currentEmail = $_SESSION['user']['Email'];
     $currentUsername = $_SESSION['user']['Username'];
+
     $id = $_SESSION['user']['ZenID'];
 
     if (empty($username) && empty($email)) header('location: ../page/profile.php?null=1');
@@ -33,15 +37,23 @@ if (isset($_POST['submit'])) {
             header("Location: /user/profile.php");
             exit();  // Jangan lupa exit setelah header
         } else {
+            if($pictureTmp != "") {
+                if($_SESSION['user']['Picture']) {
+                    unlink("../page/images/profile/{$_SESSION['user']['Picture']}");
+                }
+                move_uploaded_file($pictureTmp, "../page/images/profile/{$_FILES['picture']['name']}");
+            }
+
             // Lanjutkan update jika tidak ada duplikasi
-            $updateQuery = "UPDATE user SET Username = ?, Email = ? WHERE ZenID = ?";
+            $updateQuery = "UPDATE user SET Username = ?, Email = ?, Picture = ? WHERE ZenID = ?";
             $updateStatement = $kunci->prepare($updateQuery);
-            $updateStatement->execute([$username, $email, $id]);
+            $updateStatement->execute([$username, $email, $pictureName ?? $_SESSION['user']['Picture'], $id]);
 
             // Update session email jika berhasil mengubah email
             if ($updateStatement->rowCount() > 0) {  // Cek jika ada perubahan data
                 $_SESSION['user']['Email'] = $email;
                 $_SESSION['user']['Username'] = $username;
+                $_SESSION['user']['Picture'] = $pictureName;
 
                 header("Location: /page/profile.php?success=1");
                 exit();  // Jangan lupa exit setelah header
