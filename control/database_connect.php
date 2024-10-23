@@ -2,7 +2,7 @@
 $host = 'localhost';
 $dbname = 'zentask_db';
 $username = 'root';
-$password = '';
+$password = 'SQLP@ss98';
 
 $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
 

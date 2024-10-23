@@ -1,3 +1,6 @@
+<?php session_start();
+isset($_SESSION['user']) ? header('location: ./dashboard.php') : false; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['ZenID'])){
+if(!isset($_SESSION['user'])){
     header('location: ../page/sign_in.php');
     die();
 }

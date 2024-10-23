@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "SELECT * FROM users WHERE username = ?";
     }
 
-    $stmt = $pdo->prepare($sql);
+    $stmt = $kunci->prepare($sql);
     $stmt->execute([$email_or_username]);
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);

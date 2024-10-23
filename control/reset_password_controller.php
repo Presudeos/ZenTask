@@ -1,13 +1,6 @@
 <?php
-$host = 'localhost';
-$dbname = 'zentask_db';
-$user = 'root';  
-$pass = '';    
-
+include './database_connect.php';
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST['email'];
         $new_password = $_POST['new_password'];
@@ -22,7 +15,7 @@ try {
 
         $sql = "UPDATE users SET password = :new_password WHERE email = :email";
 
-        $stmt = $pdo->prepare($sql);
+        $stmt = $kunci->prepare($sql);
         $stmt->bindParam(':new_password', $hashed_password);
         $stmt->bindParam(':email', $email);
 
