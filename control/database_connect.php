@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';
-$dbname = 'zentask_db';
-$username = 'root';
-$password = 'SQLP@ss98';
+$dbname = 'u571101154_zentask_lab';
+$username = 'u571101154_zentask_lab';
+$password = 'Grizzcraft7705';
 
 $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
 
