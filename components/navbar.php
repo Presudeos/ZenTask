@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php //session_start();?>
 <nav class="w-full h-auto py-5 flex items-center px-[20px] md:px-[55px] max-lg:justify-between">
     <div class="brand w-auto font-[Pacifico] text-3xl md:text-4xl basis-1/4">
         <p class="cursor-default">ZenTask</p>
