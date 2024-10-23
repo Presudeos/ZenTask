@@ -59,14 +59,14 @@ $completion =(int) ($taskCompletion->fetch(PDO::FETCH_ASSOC))['completion'];
                         <p class="text-sm text-gray-600"><?= $data['Deadline'] ?></p>
                     </div>
                 <?php endwhile; ?>
-                <a href="/page/ongoingTask.php" class="text-blue-600 mt-4 underline self-end">Ongoing Task</a>
+                <a href="ongoingTask.php" class="text-blue-600 mt-4 underline self-end">Ongoing Task</a>
             </div>
 
             <div class="flex flex-col gap-4">
                 <!-- Total Task Created -->
                 <div class="bg-orange-100 px-6 py-6 rounded-lg flex flex-col justify-center items-center">
                     <h3 class="text-xl font-semibold mb-3">Total Task Created</h3>
-                    <h1 class="text-4xl font-bold"><?= $ongoing->rowCount(); ?></h1>
+                    <h1 class="text-4xl font-bold"><?= $totalTask['C'] ?></h1>
                 </div>
                 <!-- Task Completion -->
                 <div class="bg-orange-100 px-6 py-6 rounded-lg flex flex-col justify-center items-center">
@@ -77,7 +77,7 @@ $completion =(int) ($taskCompletion->fetch(PDO::FETCH_ASSOC))['completion'];
                         <div class="bg-green-500 h-2.5 rounded-full"
                              style="width: <?= $completion; ?>%;"></div>
                     </div>
-                    <a href="/page/completedTask.php" class="text-blue-600 mt-4 underline self-end">Completed Task</a>
+                    <a href="completedTask.php" class="text-blue-600 mt-4 underline self-end">Completed Task</a>
                 </div>
             </div>
         </div>
