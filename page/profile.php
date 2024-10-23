@@ -59,7 +59,7 @@ if (!isset($_SESSION['user'])) header('location: ./sign_in.php'); ?>
     </div>
     <div class="w-full max-w-4xl mx-auto mt-12 flex flex-col md:flex-row justify-center items-center gap-8">
         <div class="flex flex-col items-center md:items-start">
-            <img src="./images/user_profile.jpg"
+            <img src="<?= "./images/profile/{$_SESSION['user']['Picture']}" ?? './images/user_profile.jpg' ?>"
                  class="w-40 h-40 md:w-48 md:h-48 object-cover rounded-full aspect-square mb-4"/>
             <button class="w-auto h-auto pr-3 py-1 rounded-md edit-box add flex gap-x-2 mb-2"><img class="w-5 edit-box"
                                                                                                    src="./images/edit.svg">Edit
@@ -90,7 +90,7 @@ if (!isset($_SESSION['user'])) header('location: ./sign_in.php'); ?>
 
 <!-- Modal: Edit Profile -->
 <div class="modal-container-editprofile fixed top-0 left-0 h-full w-full flex items-center justify-center hidden">
-    <form action="../control/editProfile.php" method="POST"
+    <form action="../control/editProfile.php" method="POST" enctype="multipart/form-data"
           class="modal-editprofile w-11/12 max-w-md px-8 py-8 flex flex-col justify-center bg-white rounded-md shadow font-[Roboto]">
         <p class="font-bold place-self-center">Edit Profile</p>
         <div class="flex flex-col mb-3 mt-4 text-sm gap-y-1">
@@ -100,6 +100,10 @@ if (!isset($_SESSION['user'])) header('location: ./sign_in.php'); ?>
         <div class="flex flex-col mb-3 text-sm gap-y-1">
             <label>Email</label>
             <input class="h-10 p-3 border rounded-md w-full" value="<?= $_SESSION['user']['Email'] ?>" name="email" placeholder="example@example.com"/>
+        </div>
+        <div class="flex flex-col mb-3 text-sm gap-y-1">
+            <label>Profile Picture</label>
+            <input type="file" class="h-10 p-3 border rounded-md w-full" name="picture" placeholder="example@example.com"/>
         </div>
         <div class="flex flex-row mt-4  justify-between">
             <button type="button" class="cancelform-editprofile w-28 h-8 rounded-md bg-gray-400 text-md text-white">
