@@ -1,5 +1,6 @@
 <!-- Responsive -->
 <?php session_start();
+$_SESSION['Anchor_Page'] = 'profile.php';
 if (!isset($_SESSION['user'])) header('location: ./sign_in.php'); ?>
 
 <!DOCTYPE html>

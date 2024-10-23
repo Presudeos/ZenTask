@@ -4,10 +4,10 @@
         <p class="cursor-default">ZenTask</p>
     </div>
     <div class="nav-link basis-1/2 font-[Poppins] font-medium text-lg flex items-center gap-x-[41px] justify-center max-lg:hidden">
-        <a href="dashboard.php" class="active">Dashboard</a>
-        <a href="taskList.php">Tasks</a>
-        <a href="ongoingTask.php">Ongoing</a>
-        <a href="completedTask.php">Completed</a>
+        <a href="dashboard.php" class="<?= $_SESSION['Anchor_Page'] == 'dashboard.php' ? 'active' : '' ?>">Dashboard</a>
+        <a href="taskList.php" class="<?= $_SESSION['Anchor_Page'] == 'taskList.php' ? 'active' : '' ?>">Tasks</a>
+        <a href="ongoingTask.php" class="<?= $_SESSION['Anchor_Page'] == 'ongoingTask.php' ? 'active' : '' ?>">Ongoing</a>
+        <a href="completedTask.php" class="<?= $_SESSION['Anchor_Page'] == 'completedTask.php' ? 'active' : '' ?>">Completed</a>
     </div>
     <label class="burger lg:hidden" for="burger">
         <input type="checkbox" id="burger">
@@ -25,7 +25,7 @@
             />
         </a>
         <a href="profile.php">
-            <p class="cursor-pointer font-[Montserrat] font-light text-md text-right max-[1200px]:hidden">
+            <p class="cursor-pointer font-[Montserrat] text-md text-right max-[1200px]:hidden" <?= $_SESSION['Anchor_Page'] == 'profile.php' ? 'font-bold' : 'font-light' ?>>
                 <?= $_SESSION['user']['Username'] ?>
             </p>
         </a>

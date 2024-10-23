@@ -3,12 +3,12 @@ session_start();
 
 try {
     // Check if the user is logged in
-    if (!isset($_SESSION['user_id'])) {
+    if (!isset($_SESSION['user']['ZenID'])) {
         header("Location: ../page/sign_in.php");
         exit();
     }
 
-    $user_id = $_SESSION['user_id']; 
+    $user_id = $_SESSION['user']['ZenID'];
 
     // Fetch user data based on the ID
     $sql = "SELECT username, email, created_at FROM users WHERE id = :user_id";
