@@ -17,6 +17,7 @@ a.active::after {
 
 /* Button */
 
+/* Button */
 .button1 {
   --main-focus: #2d8cf0;
   --font-color: #000000;
@@ -29,11 +30,13 @@ a.active::after {
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: space-between; /* Pastikan elemen terdistribusi dengan baik */
   border: 2px solid var(--main-color);
   box-shadow: 4px 4px var(--main-color);
   background-color: var(--bg-color);
   border-radius: 10px;
   overflow: hidden;
+  z-index: 1; /* Pastikan tidak menimpa elemen lain */
 }
 
 .button1,
@@ -82,6 +85,20 @@ a.active::after {
   box-shadow: 0px 0px var(--main-color);
 }
 
+/* Additional styling to ensure no overlap */
+.nav-link,
+#mobileMenu {
+  z-index: 5; /* Higher than button */
+}
+
+.button1.addtask {
+  z-index: 1; /* Lower than navigation */
+}
+
+.addtask:hover {
+  z-index: 2;
+}
+
 /* Burger */
 .burger {
   position: relative;
@@ -90,6 +107,7 @@ a.active::after {
   background: transparent;
   cursor: pointer;
   display: block;
+  z-index: 10;
 }
 
 .burger input {
@@ -141,6 +159,15 @@ a.active::after {
   transform: rotate(-45deg);
   top: 28px;
   left: 5px;
+}
+
+/* Mobile Navigation Animation */
+#mobileMenu {
+  transition: transform 0.3s ease;
+}
+
+#mobileMenu.open {
+  transform: translateX(-300px); /* Transisi dari kanan ke kiri */
 }
 
 /* Checkbox */
@@ -260,4 +287,13 @@ a.active::after {
 
 .list-container:hover {
   background-color: blue;
+}
+
+.bgblur {
+  filter: blur(0px);
+  transition: filter 0.3s ease;
+}
+
+.bgblur.blur {
+  filter: blur(4px);
 }
