@@ -210,6 +210,7 @@ $_SESSION['Anchor_Page'] = "ongoingTask.php";
     $(document).ready(function () {
         // Meng-handle klik pada checkbox di dalam li
         $('input[type="checkbox"]').on('click', function (e) {
+            if($(this).attr('id') == 'burger') return;
             e.stopPropagation();
 
             var $checkbox = $(this);
