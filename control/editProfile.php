@@ -33,8 +33,7 @@ if (isset($_POST['submit'])) {
 
         if ($result) {
             // Jika ada duplikasi username atau email
-            $_SESSION['error'] = "Username atau Email sudah digunakan. Silakan coba yang lain!";
-            header("Location: /user/profile.php");
+            header("Location: /page/profile.php?error=1");
             exit();  // Jangan lupa exit setelah header
         } else {
             if($pictureTmp != "") {
@@ -47,18 +46,18 @@ if (isset($_POST['submit'])) {
             // Lanjutkan update jika tidak ada duplikasi
             $updateQuery = "UPDATE user SET Username = ?, Email = ?, Picture = ? WHERE ZenID = ?";
             $updateStatement = $kunci->prepare($updateQuery);
-            $updateStatement->execute([$username, $email, $pictureName ?? $_SESSION['user']['Picture'], $id]);
+            $updateStatement->execute([$username, $email, $pictureName != "" ? $pictureName : $_SESSION['user']['Picture'], $id]);
 
             // Update session email jika berhasil mengubah email
             if ($updateStatement->rowCount() > 0) {  // Cek jika ada perubahan data
                 $_SESSION['user']['Email'] = $email;
                 $_SESSION['user']['Username'] = $username;
-                $_SESSION['user']['Picture'] = $pictureName;
+                $_SESSION['user']['Picture'] = $pictureName != "" ? $pictureName : $_SESSION['user']['Picture'];
 
                 header("Location: /page/profile.php?success=1");
                 exit();  // Jangan lupa exit setelah header
             } else {
-                header("Location: /page/profile.php?error=1");
+                header("Location: /page/profile.php?null=1");
                 exit();  // Jangan lupa exit setelah header
             }
         }
