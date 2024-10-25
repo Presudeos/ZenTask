@@ -11,7 +11,7 @@ try {
     $user_id = $_SESSION['user']['ZenID'];
 
     // Fetch user data based on the ID
-    $sql = "SELECT username, email, created_at FROM users WHERE id = :user_id";
+    $sql = "SELECT username, email, Created_at FROM users WHERE id = :user_id";
     $stmt = $kunci->prepare($sql);
     $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $stmt->execute();
@@ -25,7 +25,7 @@ try {
 
     $username = $user['username'];
     $email = $user['email'];
-    $date_joined = date('d F Y', strtotime($user['created_at'])); 
+    $date_joined = date('d F Y', strtotime($user['Created_at'])); 
 
 } catch (PDOException $e) {
     echo "Database error: " . $e->getMessage();
