@@ -24,20 +24,8 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dashboard`
 --
 
-CREATE TABLE `dashboard` (
-  `ZenID` int(11) NOT NULL,
-  `TaskCreated` int(11) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `dashboard`
---
-
-INSERT INTO `dashboard` (`ZenID`, `TaskCreated`) VALUES
-(1, 9);
 
 -- --------------------------------------------------------
 
@@ -88,28 +76,11 @@ INSERT INTO `user` (`ZenID`, `Username`, `Email`, `Password`) VALUES
 -- Table structure for table `userprofile`
 --
 
-CREATE TABLE `userprofile` (
-  `ZenID` int(11) NOT NULL,
-  `Picture` varchar(100) DEFAULT NULL,
-  `DateJoined` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `userprofile`
+--- Indexes for dumped tables
 --
 
-INSERT INTO `userprofile` (`ZenID`, `Picture`, `DateJoined`) VALUES
-(1, NULL, '2024-10-22');
 
 --
--- Indexes for dumped tables
---
-
---
--- Indexes for table `dashboard`
---
-ALTER TABLE `dashboard`
-  ADD KEY `ZenID` (`ZenID`);
 
 --
 -- Indexes for table `task`
@@ -125,10 +96,7 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`ZenID`);
 
 --
--- Indexes for table `userprofile`
 --
-ALTER TABLE `userprofile`
-  ADD PRIMARY KEY (`ZenID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -149,25 +117,10 @@ ALTER TABLE `user`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `dashboard`
---
-ALTER TABLE `dashboard`
-  ADD CONSTRAINT `dashboard_ibfk_1` FOREIGN KEY (`ZenID`) REFERENCES `user` (`ZenID`);
-
---
--- Constraints for table `task`
---
 ALTER TABLE `task`
   ADD CONSTRAINT `task_ibfk_1` FOREIGN KEY (`ZenID`) REFERENCES `user` (`ZenID`);
 
 --
--- Constraints for table `userprofile`
---
-ALTER TABLE `userprofile`
-  ADD CONSTRAINT `userprofile_ibfk_1` FOREIGN KEY (`ZenID`) REFERENCES `user` (`ZenID`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
