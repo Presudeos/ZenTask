@@ -59,7 +59,7 @@ if (!isset($_SESSION['user'])) header('location: ./sign_in.php'); ?>
     </div>
     <div class="w-full max-w-4xl mx-auto mt-12 flex flex-col md:flex-row justify-center items-center gap-8">
         <div class="flex flex-col items-center md:items-start">
-            <img src="<?= "./images/profile/{$_SESSION['user']['Picture']}" ?? './images/user_profile.jpg' ?>"
+            <img src="<?php if(isset($_SESSION['user']['Picture'])) echo("./images/profile/{$_SESSION['user']['Picture']}"); else echo('./images/user_profile.jpg'); ?>"
                  class="w-40 h-40 md:w-48 md:h-48 object-cover rounded-full aspect-square mb-4"/>
             <button class="w-auto h-auto pr-3 py-1 rounded-md edit-box add flex gap-x-2 mb-2"><img class="w-5 edit-box"
                                                                                                    src="./images/edit.svg">Edit
@@ -80,7 +80,7 @@ if (!isset($_SESSION['user'])) header('location: ./sign_in.php'); ?>
             <p class="mb-2 font-semibold text-gray-700">Email</p>
             <p class="mb-4 text-gray-700"><?= $_SESSION['user']['Email']; ?></p>
             <p class="mb-2 font-semibold text-gray-700">Date Joined</p>
-            <p class="mb-4 text-gray-700"><?= $_SESSION['user']['created_at']; ?></p>
+            <p class="mb-4 text-gray-700"><?= $_SESSION['user']['Created_at']; ?></p>
             <p class="mb-2 font-semibold text-gray-700">ZenID</p>
             <p class="text-gray-700"><?= $_SESSION['user']['ZenID']; ?></p>
         </div>
