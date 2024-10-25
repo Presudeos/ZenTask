@@ -1,0 +1,299 @@
+/* Navbar */
+
+.nav-link a::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  margin: 4px auto 0 auto;
+  border-radius: 5px;
+  background-color: rgb(189, 255, 48);
+  transform: scaleX(0);
+}
+
+a.active::after {
+  transform: scaleX(0.5);
+}
+
+/* Button */
+
+/* Button */
+.button1 {
+  --main-focus: #2d8cf0;
+  --font-color: #000000;
+  --bg-color-sub: #bdff30;
+  --bg-color: #bdff30;
+  --main-color: #323232;
+  position: relative;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Pastikan elemen terdistribusi dengan baik */
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1; /* Pastikan tidak menimpa elemen lain */
+}
+
+.button1,
+.button1__icon,
+.button1__text {
+  transition: all 0.3s;
+}
+
+.button1 .button1__text {
+  transform: translateX(22px);
+  color: var(--font-color);
+  font-weight: 600;
+}
+
+.button1 .button1__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 100%;
+  width: 39px;
+  background-color: var(--bg-color-sub);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button1 .svg {
+  width: 20px;
+  fill: var(--main-color);
+}
+
+.button1:hover {
+  background: var(--bg-color);
+}
+
+.button1:hover .button1__text {
+  color: transparent;
+}
+
+.button1:hover .button1__icon {
+  width: 148px;
+  transform: translateX(0);
+}
+
+.button1:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0px 0px var(--main-color);
+}
+
+/* Additional styling to ensure no overlap */
+.nav-link,
+#mobileMenu {
+  z-index: 5; /* Higher than button */
+}
+
+.button1.addtask {
+  z-index: 1; /* Lower than navigation */
+}
+
+.addtask:hover {
+  z-index: 2;
+}
+
+/* Burger */
+.burger {
+  position: relative;
+  width: 40px;
+  height: 30px;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+  z-index: 10;
+}
+
+.burger input {
+  display: none;
+}
+
+.burger span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: black;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+
+.burger span:nth-of-type(1) {
+  top: 0px;
+  transform-origin: left center;
+}
+
+.burger span:nth-of-type(2) {
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left center;
+}
+
+.burger span:nth-of-type(3) {
+  top: 100%;
+  transform-origin: left center;
+  transform: translateY(-100%);
+}
+
+.burger input:checked ~ span:nth-of-type(1) {
+  transform: rotate(45deg);
+  top: 0px;
+  left: 5px;
+}
+
+.burger input:checked ~ span:nth-of-type(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.burger input:checked ~ span:nth-of-type(3) {
+  transform: rotate(-45deg);
+  top: 28px;
+  left: 5px;
+}
+
+/* Mobile Navigation Animation */
+#mobileMenu {
+  transition: transform 0.3s ease;
+}
+
+#mobileMenu.open {
+  transform: translateX(-300px); /* Transisi dari kanan ke kiri */
+}
+
+/* Checkbox */
+
+.check {
+  cursor: pointer;
+  position: relative;
+  margin: auto;
+  width: 18px;
+  height: 18px;
+  -webkit-tap-highlight-color: transparent;
+  transform: translate3d(0, 0, 0);
+}
+
+.check:before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(34, 50, 84, 0.03);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.check svg {
+  position: relative;
+  z-index: 1;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #c8ccd4;
+  stroke-width: 1.5;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.2s ease;
+}
+
+.check svg path {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 0;
+}
+
+.check svg polyline {
+  stroke-dasharray: 22;
+  stroke-dashoffset: 66;
+}
+
+.check:hover:before {
+  opacity: 1;
+}
+
+.check:hover svg {
+  stroke: var(--accent-color, #a3e583);
+}
+
+/* #cbx2:checked + .check svg {
+  stroke: var(--accent-color, #a3e583);
+}
+
+#cbx2:checked + .check svg path {
+  stroke-dashoffset: 60;
+  transition: all 0.3s linear;
+}
+
+#cbx2:checked + .check svg polyline {
+  stroke-dashoffset: 42;
+  transition: all 0.2s linear;
+  transition-delay: 0.15s;
+} */
+
+.cbx:checked + .check svg {
+  stroke: var(--accent-color, #a3e583);
+}
+
+.cbx:checked + .check svg path {
+  stroke-dashoffset: 60;
+  transition: all 0.3s linear;
+}
+
+.cbx:checked + .check svg polyline {
+  stroke-dashoffset: 42;
+  transition: all 0.2s linear;
+  transition-delay: 0.15s;
+}
+
+.description-div {
+  display: block;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: max-height 0.2s ease-in-out, opacity 0.6s ease-in-out;
+}
+
+.description-div.expand {
+  visibility: visible;
+  opacity: 1;
+  max-height: 200px;
+}
+
+.list-container {
+  transition: max-height 1.5s ease, opacity 1.5s ease, padding 1.5s ease;
+  overflow: hidden;
+  max-height: 300px; /* Initial height */
+  opacity: 1;
+}
+
+.list-container.remove {
+  max-height: 0;
+  opacity: 0;
+  padding: 0;
+}
+
+.list-container:hover {
+  background-color: blue;
+}
+
+.bgblur {
+  filter: blur(0px);
+  transition: filter 0.3s ease;
+}
+
+.bgblur.blur {
+  filter: blur(4px);
+}
