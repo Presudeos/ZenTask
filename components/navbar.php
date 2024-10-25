@@ -32,7 +32,7 @@
     <!-- Profile -->
     <div class="profilenav flex flex-row-reverse h-20 items-center basis-1/4 max-lg:hidden max-lg:place-self-end">
         <a href="profile.php">
-            <img src="<?= "./images/profile/{$_SESSION['user']['Picture']}" ?? './images/user_profile.jpg' ?>" class="cursor-pointer rounded-full object-cover h-12 ml-4" alt="Profile Picture"/>
+            <img src="<?php if(isset($_SESSION['user']['Picture'])) echo("./images/profile/{$_SESSION['user']['Picture']}"); else echo('./images/user_profile.jpg'); ?>" class="cursor-pointer rounded-full object-cover h-12 ml-4" alt="Profile Picture"/>
         </a>
         <a href="profile.php">
             <p class="cursor-pointer font-[Montserrat] text-md text-right max-[1200px]:hidden" <?= $_SESSION['Anchor_Page'] == 'profile.php' ? 'font-bold' : 'font-light' ?>>
