@@ -15,25 +15,39 @@ if (isset($_POST['submit'])) {
 
     $id = $_SESSION['user']['ZenID'];
 
-    if (empty($username) && empty($email)) header('location: ../page/profile.php?null=1');
+    if (empty($username) && empty($email)) header(header: 'location: ../page/profile.php?null=1');
 
     try {
-        // Cek apakah username atau email sudah digunakan oleh pengguna lain (kecuali yang sedang login)
-        if ($username == $currentUsername) {
-            $query = "SELECT * FROM user WHERE email = ? AND ZenID != ?";
-            $statement = $kunci->prepare($query);
-            $statement->execute([$email, $id]);
-            $result = $statement->fetch(PDO::FETCH_ASSOC);
-        } else if ($email == $currentEmail) {
+        if ($username == $currentUsername) { //username sama
+            if($email == $currentEmail){ //username & email sama
+                //gausah cek
+                $result = false;
+            } else{ //username sama, email beda
+                //cek
+                $query = "SELECT * FROM user WHERE email = ? AND ZenID != ?";
+                $statement = $kunci->prepare($query);
+                $statement->execute([$email, $id]);
+                $result = $statement->fetch(PDO::FETCH_ASSOC);
+            }
+        } else if ($email == $currentEmail) { //username beda, email sama
+            //cek
             $query = "SELECT * FROM user WHERE username = ? AND ZenID != ?";
             $statement = $kunci->prepare($query);
             $statement->execute([$username, $id]);
             $result = $statement->fetch(PDO::FETCH_ASSOC);
         }
+        else{ //username beda, email beda
+            //cek
+            $query = "SELECT * FROM user WHERE (username = ? OR email = ?) AND ZenID != ?";
+            $statement = $kunci->prepare($query);
+            $statement->execute([$username, $email, $id]);
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            
+        }
 
         if ($result) {
             // Jika ada duplikasi username atau email
-            header("Location: /page/profile.php?error=1");
+            header("Location: ../page/profile.php?error=1");
             exit();  // Jangan lupa exit setelah header
         } else {
             if($pictureTmp != "") {
@@ -49,15 +63,15 @@ if (isset($_POST['submit'])) {
             $updateStatement->execute([$username, $email, $pictureName != "" ? $pictureName : $_SESSION['user']['Picture'], $id]);
 
             // Update session email jika berhasil mengubah email
-            if ($updateStatement->rowCount() > 0) {  // Cek jika ada perubahan data
+            if ($updateStatement) {  // Cek jika ada perubahan data
                 $_SESSION['user']['Email'] = $email;
                 $_SESSION['user']['Username'] = $username;
                 $_SESSION['user']['Picture'] = $pictureName != "" ? $pictureName : $_SESSION['user']['Picture'];
 
-                header("Location: /page/profile.php?success=1");
+                header("Location: ../page/profile.php?success=1");
                 exit();  // Jangan lupa exit setelah header
             } else {
-                header("Location: /page/profile.php?null=1");
+                header("Location: ../page/profile.php?null=1");
                 exit();  // Jangan lupa exit setelah header
             }
         }
